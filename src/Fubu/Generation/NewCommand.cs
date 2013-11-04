@@ -116,7 +116,7 @@ namespace Fubu.Generation
 
             request.AddTemplate(_rippleTemplates[input.RippleFlag]);
 
-            if (input.AppFlag)
+            if (!input.EmptyFlag)
             {
                 var projectRequest = addApplicationProject(input, request);
                 if (input.TestsFlag)
