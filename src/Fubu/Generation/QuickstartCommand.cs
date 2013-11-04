@@ -14,7 +14,7 @@ namespace Fubu.Generation
                 ShortNameFlag = ShortNameFlag,
 
                 OptionsFlag = new string[]{"spark"}, // needs to get smarter here
-                AppFlag = true,
+                EmptyFlag = false,
                 TestsFlag = true
             };
         }

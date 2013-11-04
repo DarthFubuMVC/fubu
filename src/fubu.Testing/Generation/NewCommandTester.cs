@@ -2,7 +2,6 @@
 using Fubu.Generation;
 using FubuCore;
 using FubuCsProjFile.Templating;
-using FubuMVC.Core;
 using NUnit.Framework;
 using FubuTestingSupport;
 using System.Linq;
@@ -30,11 +29,11 @@ namespace fubu.Testing.Generation
         [Test]
         public void new_project_request_gets_the_assembly_version_alteration()
         {
-            var input = new NewCommandInput
-            {
-                SolutionName = "NewThing",
-                AppFlag = true
-            };
+	        var input = new NewCommandInput
+	        {
+		        SolutionName = "NewThing",
+		        EmptyFlag = false
+	        };
 
             var request = NewCommand.BuildTemplateRequest(input);
             request.Projects.Single().Template.ShouldContain("baseline");
@@ -43,12 +42,12 @@ namespace fubu.Testing.Generation
         [Test]
         public void supports_the_shortname_flag()
         {
-            var input = new NewCommandInput
-            {
-                SolutionName = "FubuMVC.Scenarios",
-                AppFlag = true,
-                ShortNameFlag = "Foo"
-            };
+	        var input = new NewCommandInput
+	        {
+		        SolutionName = "FubuMVC.Scenarios",
+		        EmptyFlag = false,
+		        ShortNameFlag = "Foo"
+	        };
 
             var request = NewCommand.BuildTemplateRequest(input);
 
@@ -58,11 +57,11 @@ namespace fubu.Testing.Generation
         [Test]
         public void add_no_views_home_page_if_there_are_no_views()
         {
-            var input = new NewCommandInput
-            {
-                SolutionName = "FubuMVC.Scenarios",
-                AppFlag = true,
-            };
+	        var input = new NewCommandInput
+	        {
+		        SolutionName = "FubuMVC.Scenarios",
+		        EmptyFlag = false,
+	        };
 
             var request = NewCommand.BuildTemplateRequest(input);
             request.Projects.Single().Alterations.ShouldContain("no-views");
@@ -71,12 +70,12 @@ namespace fubu.Testing.Generation
         [Test]
         public void add_spark_but_not_no_views_if_spark_option_is_requested()
         {
-            var input = new NewCommandInput
-            {
-                SolutionName = "FubuMVC.Scenarios",
-                AppFlag = true,
-                OptionsFlag = new string[]{"spark"}
-            };
+	        var input = new NewCommandInput
+	        {
+		        SolutionName = "FubuMVC.Scenarios",
+		        EmptyFlag = false,
+		        OptionsFlag = new string[] {"spark"}
+	        };
 
             var request = NewCommand.BuildTemplateRequest(input);
             request.Projects.Single().Alterations.ShouldNotContain("no-views");
@@ -116,15 +115,14 @@ namespace fubu.Testing.Generation
         }
 
         [Test]
-        public void no_project_if_app_flag_is_false()
+        public void no_project_if_empty_flag_is_true()
         {
             var input = new NewCommandInput
             {
                 SolutionName = "NewThing",
-                RippleFlag = FeedChoice.Edge
+                RippleFlag = FeedChoice.Edge,
+				EmptyFlag = true
             };
-
-            input.AppFlag.ShouldBeFalse();
 
             var request = NewCommand.BuildTemplateRequest(input);
         
@@ -180,7 +178,7 @@ namespace fubu.Testing.Generation
             var input = new NewCommandInput
             {
                 SolutionName = "NewThing",
-                AppFlag = true,
+                EmptyFlag = false,
                 TestsFlag = false
             };
 
@@ -191,12 +189,12 @@ namespace fubu.Testing.Generation
         [Test]
         public void adds_in_the_testing_request_if_app_and_tests_are_selected()
         {
-            var input = new NewCommandInput
-            {
-                SolutionName = "NewThing",
-                AppFlag = true,
-                TestsFlag = true
-            };
+	        var input = new NewCommandInput
+	        {
+		        SolutionName = "NewThing",
+		        EmptyFlag = false,
+		        TestsFlag = true
+	        };
 
             var request = NewCommand.BuildTemplateRequest(input);
             var testingRequest = request.TestingProjects.Single();
@@ -242,11 +240,11 @@ namespace fubu.Testing.Generation
         [SetUp]
         public void SetUp()
         {
-            var input = new NewCommandInput
-            {
-                SolutionName = "NewThing",
-                AppFlag = true
-            };
+	        var input = new NewCommandInput
+	        {
+		        SolutionName = "NewThing",
+		        EmptyFlag = false
+	        };
 
             var request = NewCommand.BuildTemplateRequest(input);
 

@@ -14,8 +14,8 @@ namespace Fubu.Generation
 
         // If this is blank, use this folder as the solution name too
 
-        [Description("If chosen, fubu new will also create a single, empty FubuMVC application project with the same name")]
-        public bool AppFlag { get; set; }
+        [Description("If chosen, fubu new will only create an empty solution.")]
+        public bool EmptyFlag { get; set; }
 
         [Description("Add a testing library for the project using the default FubuTestingSupport w/ NUnit")]
         public bool TestsFlag { get; set; }
