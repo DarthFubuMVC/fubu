@@ -58,9 +58,9 @@ task :create_gem => [:compile] do
 	Dir.mkdir 'bin' unless Dir.exists?('bin')
 	Dir.mkdir 'pkg' unless Dir.exists?('pkg')
 	
-	copyOutputFiles "src/fubu/bin/#{@solution.compilemode}", '*.dll', 'bin'
-	copyOutputFiles "src/fubu/bin/#{@solution.compilemode}", 'fubu.exe', 'bin'
-	copyOutputFiles "src/fubu/bin/#{@solution.compilemode}", 'chromedriver.exe', 'bin'
+	copyOutputFiles "src/Fubu/bin/#{@solution.compilemode}", '*.dll', 'bin'
+	copyOutputFiles "src/Fubu/bin/#{@solution.compilemode}", 'Fubu.exe', 'bin'
+	copyOutputFiles "src/Fubu/bin/#{@solution.compilemode}", 'chromedriver.exe', 'bin'
 	FileUtils.cp_r 'templates', 'bin'
 	
 	FileUtils.copy 'fubu', 'bin'
