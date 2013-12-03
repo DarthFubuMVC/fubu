@@ -21,5 +21,16 @@
   <category type="add">
     <project name="library" description="Simple Class Library project" template="baseline" alterations="fubucore"></project>
     <project name="web-bottle" description="New FubuMVC Bottle" template="baseline" alterations="fubumvc-bottle"></project>
+
+    <project name="web-app" description="New FubuMVC application project" template="aspnet" alterations="fubumvc-empty">
+      <selection name="ioc" description="IoC Container" >
+        <option name="structuremap" description="Use StructureMap for IoC" alterations="structuremap"/>
+      </selection>
+      <selection name="views" description="View Engine">
+        <option name="no-views" description="No view engine" alterations="no-views"/>
+        <option name="spark" description="Spark view engine" alterations="spark"/>
+        <option name="razor" description="Razor view engine" alterations="razor"/>
+      </selection>
+    </project>
   </category>
 </templates>
