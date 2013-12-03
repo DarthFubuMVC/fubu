@@ -1,2 +1,0 @@
-FubuMVC.Core
-Bottles

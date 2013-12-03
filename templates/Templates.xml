@@ -10,12 +10,16 @@
         <option name="razor" description="Razor view engine" alterations="razor"/>
       </selection>
     </project>
+    <project name="web-bottle" description="New FubuMVC Bottle" template="baseline" alterations="fubumvc-bottle">
+      
+    </project>
     <project name="library" description="Simple Class Library project" template="baseline" alterations="fubucore"></project>
-	<project name="service" description="Windows Service using BottlesServiceRunner and TopShelf" template="baseline" alterations="bottle-service, empty-bottle-service">
+	  <project name="service" description="Windows Service using BottlesServiceRunner and TopShelf" template="baseline" alterations="bottle-service, empty-bottle-service">
 	
-	</project>
+	  </project>
   </category>
   <category type="add">
     <project name="library" description="Simple Class Library project" template="baseline" alterations="fubucore"></project>
+    <project name="web-bottle" description="New FubuMVC Bottle" template="baseline" alterations="fubumvc-bottle"></project>
   </category>
 </templates>

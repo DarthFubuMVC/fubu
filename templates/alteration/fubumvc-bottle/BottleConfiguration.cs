@@ -6,6 +6,10 @@ namespace %NAMESPACE%
 	{
 		public %SHORT_NAME%Registry()
 		{
+			// The presence of this class by itself will allow you
+			// to import Endpoint/Chains from this Bottle into the main
+			// application
+		
 			// Register any custom FubuMVC policies, inclusions, or 
 			// other FubuMVC configuration here for ONLY this bottle
 			// Or leave as is to use the default conventions unchanged
