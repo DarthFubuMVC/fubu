@@ -32,5 +32,11 @@
         <option name="razor" description="Razor view engine" alterations="razor"/>
       </selection>
     </project>
+
+    <project name="service" description="Windows Service using BottlesServiceRunner and TopShelf" template="baseline" alterations="bottle-service, empty-bottle-service">
+
+    </project>
+    
+    
   </category>
 </templates>
