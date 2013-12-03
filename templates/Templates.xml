@@ -11,6 +11,9 @@
       </selection>
     </project>
     <project name="library" description="Simple Class Library project" template="baseline" alterations="fubucore"></project>
+	<project name="service" description="Windows Service using BottlesServiceRunner and TopShelf" template="baseline" alterations="bottle-service, empty-bottle-service">
+	
+	</project>
   </category>
   <category type="add">
     <project name="library" description="Simple Class Library project" template="baseline" alterations="fubucore"></project>

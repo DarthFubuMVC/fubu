@@ -80,6 +80,28 @@ namespace fubu.Testing.Generation
         }
 
         [Test]
+        public void choose_the_edge_feed_by_flag()
+        {
+            var input = new NewCommandInput
+            {
+                EdgeFlag = true
+            };
+
+            input.RippleFlag.ShouldEqual(FeedChoice.Edge);
+        }
+
+        [Test]
+        public void choose_the_floating_edge_feed_by_flag()
+        {
+            var input = new NewCommandInput
+            {
+                FloatingFlag = true
+            };
+
+            input.RippleFlag.ShouldEqual(FeedChoice.FloatingEdge);
+        }
+
+        [Test]
         public void sets_the_short_name_of_the_project_by_default()
         {
             var input = new NewCommandInput

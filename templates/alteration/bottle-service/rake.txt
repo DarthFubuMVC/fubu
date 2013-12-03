@@ -1,0 +1,6 @@
+FubuRake::BottleServices.new({
+  :prefix => "%SHORT_NAME%", 
+ 
+  :dir => "%PROJECT_FOLDER%/bin/#{@solution.compilemode}", 
+  :name => '%SERVICE_NAME%'
+})

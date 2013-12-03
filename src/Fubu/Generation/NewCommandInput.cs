@@ -19,9 +19,10 @@ namespace Fubu.Generation
             {FeedChoice.PublicOnly, "public-ripple"}
         };
 
+        private FeedChoice _rippleFlag = FeedChoice.PublicOnly;
+
         public NewCommandInput()
         {
-            RippleFlag = FeedChoice.PublicOnly;
             Profile = "web-app";
             VersionFlag = Solution.VS2012;
         }
@@ -35,8 +36,40 @@ namespace Fubu.Generation
         [Description("Only list a preview of the template plan, but do not execute the plan")]
         public bool PreviewFlag { get; set; }
 
-        [Description("Choose a ripple configuration for only public Nuget feeds, including the Fubu TeamCity feed, or 'floating' on the Fubu edge")]
-        public FeedChoice RippleFlag { get; set; }
+        [Description("Use edge nugets from the Fubu TeamCity feed.  Equivalent to --ripple Edge")]
+        public bool EdgeFlag
+        {
+            get
+            {
+                return RippleFlag == FeedChoice.Edge;
+            }
+            set
+            {
+                RippleFlag = FeedChoice.Edge;
+            }
+        }
+
+        [Description("Use floating edge nugets from the Fubu TeamCity feed.  Equivalent to --ripple FloatingEdge")]
+        public bool FloatingFlag
+        {
+            get
+            {
+                return RippleFlag == FeedChoice.Edge;
+            }
+            set
+            {
+                RippleFlag = FeedChoice.FloatingEdge;
+            }
+        }
+
+        [Description(
+            "Choose a ripple configuration for only public Nuget feeds, including the Fubu TeamCity feed, or 'floating' on the Fubu edge"
+            )]
+        public FeedChoice RippleFlag
+        {
+            get { return _rippleFlag; }
+            set { _rippleFlag = value; }
+        }
 
         [Description("Used in many templates as a prefix for generated classes")]
         public string ShortNameFlag { get; set; }
