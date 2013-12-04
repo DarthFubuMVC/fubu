@@ -18,7 +18,7 @@
 	
 	  </project>
 
-    <project name="transport-service" description="New FubuTransportation application" template="baseline" alterations="bottle-service, fubutransportation">
+    <project name="transport-service" description="New FubuTransportation application" template="baseline" alterations="bottle-service, fubutransportation" dotnet="v4.5">
       <selection name="ioc" description="IoC Container" >
         <option name="structuremap" description="Use StructureMap for IoC" alterations="ft-structuremap"/>
       </selection>
