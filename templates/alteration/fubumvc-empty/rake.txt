@@ -1,1 +1,0 @@
-FubuRake::MvcApp.new({:directory => '%PROJECT_FOLDER%', :name => '%SHORT_NAME%'})

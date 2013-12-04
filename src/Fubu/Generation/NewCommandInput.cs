@@ -124,7 +124,6 @@ namespace Fubu.Generation
             return request;
         }
 
-        // TODO -- views?
         public TemplateChoices ToTemplateChoices()
         {
             return new TemplateChoices

@@ -105,7 +105,8 @@ namespace Fubu.Generation
                 SolutionName = solutionFile
             };
 
-            request.Substitutions.Set(ProjectPlan.SHORT_NAME, input.DetermineShortName());
+            var shortName = input.DetermineShortName();
+            request.Substitutions.Set(ProjectPlan.SHORT_NAME, shortName);
 
             var choices = input.ToChoices();
 
