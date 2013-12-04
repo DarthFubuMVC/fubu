@@ -17,6 +17,18 @@
 	  <project name="service" description="Windows Service using BottlesServiceRunner and TopShelf" template="baseline" alterations="bottle-service, empty-bottle-service">
 	
 	  </project>
+
+    <project name="transport-service" description="New FubuTransportation application" template="baseline" alterations="bottle-service, fubutransportation">
+      <selection name="ioc" description="IoC Container" >
+        <option name="structuremap" description="Use StructureMap for IoC" alterations="ft-structuremap"/>
+      </selection>
+      <selection name="transport" description="Initial transport choice -- you can add additional transports later">
+        <option name="lq" description="LightningQueues transport" alterations="ft-lightningqueues"/>
+        <option name="in-memory" description="In Memory transport suitable for experimentation or light testing" alterations="ft-in-memory"/>
+      </selection>
+    </project>
+    
+    
   </category>
   <category type="add">
     <project name="library" description="Simple Class Library project" template="baseline" alterations="fubucore"></project>

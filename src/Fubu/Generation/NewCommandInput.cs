@@ -85,6 +85,7 @@ namespace Fubu.Generation
         public string VersionFlag { get; set; }
 
         [Description("Specify the .Net version 'v4.0' or 'v4.5'")]
+        [FlagAlias("dot-net")]
         public string DotNetFlag { get; set; }
 
         public string SolutionDirectory()
