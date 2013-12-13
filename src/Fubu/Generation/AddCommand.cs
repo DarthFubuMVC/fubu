@@ -111,7 +111,13 @@ namespace Fubu.Generation
             var choices = input.ToChoices();
 
             var project = Templating.Library.Graph.BuildProjectRequest(choices);
-            project.Version = input.DotNetFlag ?? DotNetVersion.V40;
+            if (input.DotNetFlag.IsNotEmpty())
+            {
+                project.Version = input.DotNetFlag;
+            }
+
+            project.Version = project.Version ?? DotNetVersion.V40;
+
 
 
             request.AddProjectRequest(project);

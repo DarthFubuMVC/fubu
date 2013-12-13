@@ -4,9 +4,9 @@ using FubuTransportation.Configuration;
 
 namespace %NAMESPACE%
 {
-    public class TransportSettings
+    public class BusSettings
     {
-        public TransportSettings()
+        public BusSettings()
         {
             Inbound = new Uri("lq.tcp://localhost:2200/inbound");
             Outbound = new Uri("lq.tcp://localhost:2201/outbound");
@@ -16,7 +16,7 @@ namespace %NAMESPACE%
         public Uri Outbound { get; set; }
     }
 
-    public class %TRANSPORT_REGISTRY% : FubuTransportRegistry<TransportSettings>
+    public class %TRANSPORT_REGISTRY% : FubuTransportRegistry<BusSettings>
     {
         public %TRANSPORT_REGISTRY%()
         {

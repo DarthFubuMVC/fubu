@@ -112,7 +112,12 @@ namespace Fubu.Generation
             {
                 var choices = ToTemplateChoices();
                 var project = Templating.Library.Graph.BuildProjectRequest(choices);
-                project.Version = DotNetFlag ?? DotNetVersion.V40;
+                if (DotNetFlag.IsNotEmpty())
+                {
+                    project.Version = DotNetFlag;
+                }
+
+                project.Version = project.Version ?? DotNetVersion.V40;
 
                 request.AddProjectRequest(project);
                 if (!NoTestsFlag)

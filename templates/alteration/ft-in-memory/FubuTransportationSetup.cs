@@ -4,9 +4,9 @@ using FubuTransportation.Configuration;
 
 namespace %NAMESPACE%
 {
-    public class TransportSettings
+    public class BusSettings
     {
-        public TransportSettings()
+        public BusSettings()
         {
             Inbound = "memory://transport/inbound".ToUri();
             Outbound = "memory://transport/outbound".ToUri();
@@ -16,7 +16,7 @@ namespace %NAMESPACE%
         public Uri Outbound { get; set; }
     }
 
-    public class %TRANSPORT_REGISTRY% : FubuTransportRegistry<TransportSettings>
+    public class %TRANSPORT_REGISTRY% : FubuTransportRegistry<BusSettings>
     {
         public %TRANSPORT_REGISTRY%()
         {
