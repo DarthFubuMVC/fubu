@@ -1,6 +1,7 @@
 ﻿using System;
 using Bottles;
 using Bottles.Services.Remote;
+using FubuCore;
 using FubuCore.Binding;
 using FubuLocalization;
 using FubuMVC.Core;
@@ -42,6 +43,11 @@ namespace Fubu.Running
 
                 x.ServiceDirectory = _request.DirectoryFlag;
 
+                if (_request.ConfigFlag.IsNotEmpty())
+                {
+                    x.Setup.ConfigurationFile = _request.ConfigFlag;
+                }
+
                 x.Setup.PrivateBinPath = _request.DetermineBinPath();
 
                 if (configuration != null)
@@ -50,6 +56,7 @@ namespace Fubu.Running
                 }
 
                 Console.WriteLine("Assembly bin path is " + x.Setup.PrivateBinPath);
+                Console.WriteLine("The configuration file is " + x.Setup.ConfigurationFile);
             });
 
             _runner.WaitForServiceToStart<RemoteFubuMvcBootstrapper>();

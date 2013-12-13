@@ -3,17 +3,29 @@ using FubuCore;
 using FubuMVC.Core;
 using FubuMVC.Core.Packaging;
 using FubuMVC.StructureMap;
+using FubuMVC.StructureMap.Settings;
 using StructureMap;
 
 namespace FubuApp
 {
+    public class ColorSettings
+    {
+        public string Color { get; set; }
+    }
+
     public class HomeEndpoint
     {
+        private readonly ColorSettings _settings;
         public static DateTime First = DateTime.Now;
+
+        public HomeEndpoint(ColorSettings settings)
+        {
+            _settings = settings;
+        }
 
         public string Index()
         {
-            return "I was called!";
+            return "The Color in the config file is " + _settings.Color;
         }
 
         public string get_file()
@@ -35,7 +47,12 @@ namespace FubuApp
 
         public FubuApplication BuildApplication()
         {
-            return FubuApplication.DefaultPolicies().StructureMap(new Container());
+            var registry = new FubuRegistry();
+            registry.AlterSettings<ConfigurationSettings>(x => {
+                x.Include<ColorSettings>();
+            });
+
+            return FubuApplication.For(registry).StructureMap(new Container());
         }
 
 

@@ -65,6 +65,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Green.config" />
     <None Include="Something.spark" />
     <None Include="trigger.asset.config">
       <SubType>Designer</SubType>

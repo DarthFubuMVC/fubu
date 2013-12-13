@@ -38,6 +38,9 @@ namespace Fubu.Running
         [Description("Specific name of an IApplicationSource class that builds this application")]
         public string ApplicationFlag { get; set; } // this is optional
 
+        [Description("If set, overrides the name of the configuration file for the FubuMVC application AppDomain to use")]
+        public string ConfigFlag { get; set; }
+
         [Description("Overrides the directory that is the physical path of the running fubumvc application")]
         public string DirectoryFlag
         {
