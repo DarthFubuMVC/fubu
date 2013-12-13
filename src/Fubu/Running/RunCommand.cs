@@ -15,12 +15,21 @@ namespace Fubu.Running
             _application = new RemoteApplication();
             _application.Start(input);
 
+            if (_application.Failed)
+            {
+                ConsoleWriter.Write(ConsoleColor.Yellow, "Application failed to start, exiting");
+                return false;
+            }
+
             tellUsersWhatToDo();
             ConsoleKeyInfo key = Console.ReadKey();
             while (key.Key != ConsoleKey.Q)
             {
                 if (key.Key == ConsoleKey.R)
                 {
+                    Console.WriteLine();
+                    Console.WriteLine();
+
                     _application.RecycleAppDomain();
 
                     tellUsersWhatToDo();

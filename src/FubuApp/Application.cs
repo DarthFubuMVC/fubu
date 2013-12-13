@@ -47,6 +47,8 @@ namespace FubuApp
 
         public FubuApplication BuildApplication()
         {
+            //throw new NotImplementedException("You suck!");
+
             var registry = new FubuRegistry();
             registry.AlterSettings<ConfigurationSettings>(x => {
                 x.Include<ColorSettings>();

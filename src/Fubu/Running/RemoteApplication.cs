@@ -114,8 +114,14 @@ namespace Fubu.Running
                 ConsoleWriter.Write(ConsoleColor.Yellow, message.ExceptionText);
             }
 
+            _reset.Set();
+
+            Failed = true;
+
             throw new Exception("Application Failed!");
         }
+
+        public bool Failed { get; set; }
 
         public void Start(ApplicationRequest input)
         {
