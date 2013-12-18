@@ -12,7 +12,6 @@
     <description>Command line tools for FubuMVC development</description>
     <tags>packaging areas slices</tags>
     <dependencies>
-      <dependency id="Bottles.Services" />
       <dependency id="FubuCore" version="0.9.9.149" />
       <dependency id="FubuMVC.Katana" />
       <dependency id="HtmlTags" />
