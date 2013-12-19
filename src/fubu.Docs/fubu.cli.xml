@@ -63,7 +63,7 @@
     </CommandReport>
     <CommandReport>
       <Name>add</Name>
-      <Description>AddCommand</Description>
+      <Description>Adds new projects to an existing solution</Description>
       <Arguments>
         <ArgumentReport>
           <Name>projectname</Name>

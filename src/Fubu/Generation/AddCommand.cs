@@ -59,6 +59,7 @@ namespace Fubu.Generation
         }
     }
 
+    [CommandDescription("Adds new projects to an existing solution")]
     public class AddCommand : FubuCommand<AddInput>
     {
         public AddCommand()
