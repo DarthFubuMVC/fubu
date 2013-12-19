@@ -46,7 +46,7 @@ end
 
 desc "Outputs the command line usage"
 task :dump_usages => [:compile] do
-  bottles 'dump-usages fubu src/Fubu.Docs/fubu.cli.xml'
+  sh "src/Fubu/bin/#{@solution.compilemode}/fubu.exe dump-usages fubu src/Fubu.Docs/fubu.cli.xml"
 end
 
 desc "Creates the gem for fubu.exe"
