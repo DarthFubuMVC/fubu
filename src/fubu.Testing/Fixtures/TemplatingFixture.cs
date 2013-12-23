@@ -81,7 +81,7 @@ namespace fubu.Testing.Fixtures
 
             var rake = new ProcessStartInfo
             {
-                UseShellExecute = true,
+                UseShellExecute = !FubuCore.Platform.IsUnix (),
                 FileName = "rake",
                 CreateNoWindow = true,
                 WorkingDirectory = workingDirectory

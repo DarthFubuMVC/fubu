@@ -16,7 +16,7 @@ namespace Fubu.Generation
 
             var rake = new ProcessStartInfo
             {
-                UseShellExecute = true,
+                UseShellExecute = !FubuCore.Platform.IsUnix (),
                 FileName = "rake",
                 CreateNoWindow = true,
                 WorkingDirectory = plan.Root
