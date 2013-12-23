@@ -19,7 +19,7 @@ namespace Fubu.Generation
 
             var bundler = new ProcessStartInfo
             {
-                UseShellExecute = true,
+                UseShellExecute = !FubuCore.Platform.IsUnix (),
                 FileName = "bundle",
                 Arguments = "install",
                 CreateNoWindow = true,
