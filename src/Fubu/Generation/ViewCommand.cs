@@ -4,8 +4,6 @@ using FubuCore.CommandLine;
 
 namespace Fubu.Generation
 {
-    // TODO -- needs to be smart enough to know spark v. razor
-    // TODO --
     public class ViewInput
     {
         [Description("Name of the view and matching model without file extension")]
@@ -16,6 +14,8 @@ namespace Fubu.Generation
 
         [Description("open the view model and view after generation")]
         public bool OpenFlag { get; set; }
+
+
     }
 
     [CommandDescription("Creates and attaches a view model/view pair to the project in the current folder")]
@@ -28,7 +28,9 @@ namespace Fubu.Generation
             ViewModelBuilder.BuildCodeFile(input, location);
 
             var modelName = location.Namespace + "." + input.Name;
-            var path = SparkViewBuilder.Write(Environment.CurrentDirectory, modelName);
+
+            // TODO -- take in location instead.  Attach as Content to the csproj file
+            var path = SparkViewBuilder.Write(location, modelName);
 
             if (input.OpenFlag)
             {

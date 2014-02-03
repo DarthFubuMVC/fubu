@@ -8,12 +8,12 @@ namespace Fubu.Generation
     // TODO -- let you define view template by codebase
     public static class SparkViewBuilder
     {
-        public static readonly string _template = "<viewdata model=\"%MODEL%\" />";
+        public static readonly string Template = "<viewdata model=\"%MODEL%\" />";
 
-        public static string Write(string folder, string inputModel)
+        public static string Write(Location location, string inputModel)
         {
-            var path = folder.AppendPath(inputModel.Split('.').Last() + ".spark");
-            var contents = _template.Replace("%MODEL%", inputModel);
+            var path = location.CurrentFolder.AppendPath(inputModel.Split('.').Last() + ".spark");
+            var contents = Template.Replace("%MODEL%", inputModel);
 
             new FileSystem().WriteStringToFile(path, contents);
 

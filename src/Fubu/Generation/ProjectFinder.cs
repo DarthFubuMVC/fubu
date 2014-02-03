@@ -31,7 +31,8 @@ namespace Fubu.Generation
              {
                  Namespace = @namespace,
                  Project = file,
-                 RelativePath = relativePath
+                 RelativePath = relativePath,
+                 CurrentFolder = path
              };
          }
 
@@ -56,7 +57,7 @@ namespace Fubu.Generation
     {
         public CsProjFile Project { get; set; }
         public string Namespace { get; set; }
-
+        public string CurrentFolder { get; set; }
         public string RelativePath { get; set; }
     }
 }

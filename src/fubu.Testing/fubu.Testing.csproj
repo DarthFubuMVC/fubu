@@ -114,6 +114,7 @@
     <Compile Include="Generation\ProjectFinderTester.cs" />
     <Compile Include="Generation\SolutionFinderTester.cs" />
     <Compile Include="Generation\TemplatePlanExtensions.cs" />
+    <Compile Include="Generation\Templates\FileTemplateTester.cs" />
     <Compile Include="Generation\TemplatingTester.cs" />
     <Compile Include="Generation\ViewModelBuilderTester.cs" />
     <Compile Include="ModeCommandTester.cs" />
