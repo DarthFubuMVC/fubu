@@ -59,5 +59,15 @@ namespace Fubu.Generation
         public string Namespace { get; set; }
         public string CurrentFolder { get; set; }
         public string RelativePath { get; set; }
+
+        public string ProjectFolder()
+        {
+            return Project.FileName.ParentDirectory();
+        }
+
+        public string SrcFolder()
+        {
+            return ProjectFolder().ParentDirectory();
+        }
     }
 }

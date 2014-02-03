@@ -1,4 +1,5 @@
-﻿using Fubu.Generation;
+﻿using System;
+using Fubu.Generation;
 using FubuCore;
 using FubuCsProjFile;
 using NUnit.Framework;
@@ -39,6 +40,23 @@ namespace fubu.Testing.Generation
             location.Project.AssemblyName.ShouldEqual("Foo");
             location.Namespace.ShouldEqual("Foo.A");
             location.RelativePath.ShouldEqual("A");
+
+            
+        }
+
+        [Test]
+        public void sets_the_CurrentFolder()
+        {
+            fileSystem.DeleteDirectory("deep1");
+            fileSystem.CreateDirectory("deep1");
+
+            CsProjFile.CreateAtSolutionDirectory("Foo", "deep1").Save();
+
+            fileSystem.CreateDirectory("deep1", "Foo", "A");
+
+            var location = ProjectFinder.DetermineLocation("deep1".AppendPath("Foo", "A"));
+
+            location.CurrentFolder.ToFullPath().ShouldEqual(Environment.CurrentDirectory.ToFullPath().AppendPath("deep1", "Foo", "A"));
         }
 
 

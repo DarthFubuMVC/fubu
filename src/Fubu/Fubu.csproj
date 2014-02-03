@@ -130,10 +130,10 @@
     <Compile Include="Generation\RakeStep.cs" />
     <Compile Include="Generation\RemoteOperations.cs" />
     <Compile Include="Generation\SolutionFinder.cs" />
-    <Compile Include="Generation\SparkViewBuilder.cs" />
+    <Compile Include="Generation\ViewBuilder.cs" />
     <Compile Include="Generation\Templates\FileTemplate.cs" />
     <Compile Include="Generation\Templating.cs" />
-    <Compile Include="Generation\ViewCommand.cs" />
+    <Compile Include="Generation\SparkCommand.cs" />
     <Compile Include="Generation\ViewModelBuilder.cs" />
     <Compile Include="IProcess.cs" />
     <Compile Include="IProcessFactory.cs" />
@@ -173,6 +173,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <EmbeddedResource Include="Generation\Templates\view.spark" />
+    <EmbeddedResource Include="Generation\Templates\view.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="chromedriver.exe">

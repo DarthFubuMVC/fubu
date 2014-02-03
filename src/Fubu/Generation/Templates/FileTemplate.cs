@@ -8,6 +8,23 @@ namespace Fubu.Generation.Templates
 {
     public class FileTemplate
     {
+        public static FileTemplate Find(Location location, string name)
+        {
+            var projectFile = location.ProjectFolder().AppendPath(name);
+            if (File.Exists(projectFile))
+            {
+                return FromFile(projectFile);
+            }
+
+            var solutionFile = location.SrcFolder().AppendPath("templates", name);
+            if (File.Exists(solutionFile))
+            {
+                return FromFile(solutionFile);
+            }
+
+            return Embedded(name);
+        }
+
         public static FileTemplate Embedded(string name)
         {
             var text = Assembly.GetExecutingAssembly().GetManifestResourceStream(typeof (FileTemplate), name)
