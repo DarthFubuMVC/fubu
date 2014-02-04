@@ -109,6 +109,7 @@
     <Compile Include="Fixtures\TemplatingFixture.cs" />
     <Compile Include="Generation\AddCommand_and_AddInput_Tester.cs" />
     <Compile Include="Generation\GenerationContext.cs" />
+    <Compile Include="Generation\MvcBuilderTester.cs" />
     <Compile Include="Generation\NewCommandInputTester.cs" />
     <Compile Include="Generation\NewCommandTester.cs" />
     <Compile Include="Generation\ProjectFinderTester.cs" />
