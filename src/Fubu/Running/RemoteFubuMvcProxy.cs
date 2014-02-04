@@ -33,7 +33,6 @@ namespace Fubu.Running
                 x.RequireAssemblyContainingType<FubuApplication>(); // FubuMVC.Core
                 x.RequireAssemblyContainingType<FubuCsProjFile.CodeFile>(); // FubuCsProjFile just to keep it from whining
 
-                x.RequireAssembly("Owin.Extensions");
                 x.RequireAssembly("Newtonsoft.Json");
                 x.RequireAssembly("FubuMVC.OwinHost");
                 x.RequireAssembly("Microsoft.Owin.Hosting");

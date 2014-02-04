@@ -46,6 +46,14 @@ namespace Fubu.Running
                     BottleContentFolders = list.ToArray()
                 });
             }
+            catch (KatanaRightsException e)
+            {
+                EventAggregator.SendMessage(new InvalidApplication
+                {
+                    ExceptionText = e.Message,
+                    Message = "Access denied."
+                });               
+            }
             catch (Exception e)
             {
                 EventAggregator.SendMessage(new InvalidApplication
