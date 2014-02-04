@@ -18,6 +18,8 @@ namespace Fubu.Running
             _matcher = matcher;
         }
 
+        public bool Latched { get; set; }
+
         public void Dispose()
         {
             cleanUpWatchers();
@@ -67,6 +69,8 @@ namespace Fubu.Running
 
         public void ChangeFile(string filename)
         {
+            if (Latched) return;
+
             var category = _matcher.CategoryFor(filename);
 
             ConsoleWriter.Write(ConsoleColor.Gray, "Detected change to file " + filename);

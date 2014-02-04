@@ -13,6 +13,8 @@ namespace Fubu.Generation
 {
     public class AddInput
     {
+        private bool _noTestsFlag;
+
         [Description("The name of the new project")]
         public string ProjectName { get; set; }
 
@@ -27,7 +29,17 @@ namespace Fubu.Generation
 
         [Description("Do not generate a matching testing project.  Boo!")]
         [FlagAlias("no-tests", 'n')]
-        public bool NoTestsFlag { get; set; }
+        public bool NoTestsFlag
+        {
+            get
+            {
+                if (Profile.EqualsIgnoreCase("fubudocs")) return true;
+                
+                
+                return _noTestsFlag;
+            }
+            set { _noTestsFlag = value; }
+        }
 
         [Description("List all the possible project types and their valid options")]
         public bool ListFlag { get; set; }
@@ -57,6 +69,14 @@ namespace Fubu.Generation
                 Options = OptionsFlag
             };
         }
+
+        public void AssertValid()
+        {
+            if (Profile.EqualsIgnoreCase("fubudocs") && !ProjectName.EndsWith(".Docs"))
+            {
+                throw new ApplicationException("Any FubuDocs project must be named with the '.Docs' suffix");
+            }
+        }
     }
 
     [CommandDescription("Adds new projects to an existing solution")]
@@ -70,6 +90,8 @@ namespace Fubu.Generation
 
         public override bool Execute(AddInput input)
         {
+            input.AssertValid();
+
             if (input.ListFlag)
             {
                 Templating.Library.Graph.FindCategory("add").WriteDescriptionToConsole();

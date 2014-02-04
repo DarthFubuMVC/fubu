@@ -13,6 +13,9 @@
     <project name="web-bottle" description="New FubuMVC Bottle" template="baseline" alterations="fubumvc-bottle">
       
     </project>
+
+	
+	
     <project name="library" description="Simple Class Library project" template="baseline" alterations="fubucore"></project>
 	  <project name="service" description="Windows Service using BottlesServiceRunner and TopShelf" template="baseline" alterations="bottle-service, empty-bottle-service">
 	
@@ -58,5 +61,8 @@
         <option name="in-memory" description="In Memory transport suitable for experimentation or light testing" alterations="ft-in-memory"/>
       </selection>
     </project>
+	
+	<project name="fubudocs" description="New FubuDocs documentation project -- name must end with '.Docs'" template="baseline" alterations="fubudocs">
+	</project>
   </category>
 </templates>

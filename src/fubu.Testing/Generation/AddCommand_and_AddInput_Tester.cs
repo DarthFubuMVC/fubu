@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Fubu.Generation;
+using FubuCore;
 using FubuCsProjFile;
 using FubuTestingSupport;
 using NUnit.Framework;
@@ -88,6 +90,52 @@ namespace fubu.Testing.Generation
 
             var request = AddCommand.BuildTemplateRequest(input, "MyFoo.sln");
             request.TestingProjects.Any()
+                .ShouldBeFalse();
+        }
+
+        [Test]
+        public void assert_failure_if_fubudocs_and_project_name_does_not_end_with_docs()
+        {
+            var input = new AddInput
+            {
+                Profile = "fubudocs",
+                ProjectName = "Wrong"
+            };
+
+            Exception<ApplicationException>.ShouldBeThrownBy(() => {
+                input.AssertValid();
+            })
+            .Message.ShouldContain("Any FubuDocs project must be named with the '.Docs' suffix");
+        }
+
+        [Test]
+        public void assert_happy_path_with_fubudocs()
+        {
+            var input = new AddInput
+            {
+                Profile = "fubudocs",
+                ProjectName = "Right.Docs"
+            };
+
+            input.AssertValid();
+        }
+
+        [Test]
+        public void using_fubudocs_as_the_profile_sets_the_no_tests_flag_to_true()
+        {
+            var input = new AddInput
+            {
+                Profile = "fubudocs",
+                ProjectName = "Right.Docs"
+            };
+
+            input.NoTestsFlag.ShouldBeTrue();
+        }
+
+        [Test]
+        public void other_than_fubudocs_no_tests_flag_is_false()
+        {
+            new AddInput{Profile = "web-app"}.NoTestsFlag
                 .ShouldBeFalse();
         }
     }
