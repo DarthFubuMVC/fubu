@@ -23,9 +23,9 @@ namespace Fubu.Running
         public void Start(object listener, Action<RemoteDomainExpression> configuration = null)
         {
             _runner = RemoteServiceRunner.For<RemoteFubuMvcBootstrapper>(x => {
-                x.RequireAssemblyContainingType<EmbeddedFubuMvcServer>();
-                x.RequireAssemblyContainingType<RemoteFubuMvcProxy>();
-                x.RequireAssemblyContainingType<RemoteServiceRunner>();
+                x.RequireAssemblyContainingType<EmbeddedFubuMvcServer>(AssemblyCopyMode.SemVerCompatible);
+                x.RequireAssemblyContainingType<RemoteFubuMvcProxy>(AssemblyCopyMode.SemVerCompatible);
+                x.RequireAssemblyContainingType<RemoteServiceRunner>(AssemblyCopyMode.SemVerCompatible);
                 x.RequireAssemblyContainingType<Owin.IAppBuilder>();
                 x.RequireAssemblyContainingType<IActivator>(); // Bottles
                 x.RequireAssemblyContainingType<IModelBinder>(); // FubuCore
