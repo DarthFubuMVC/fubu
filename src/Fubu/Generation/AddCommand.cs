@@ -55,7 +55,7 @@ namespace Fubu.Generation
                 : ShortNameFlag;
         }
 
-        [Description("Specify the .Net version 'v4.0' or 'v4.5'")]
+        [Description("Specify the .Net version. 'v4.0' is the default. Options are 'v4.0' or 'v4.5'")]
         public string DotNetFlag { get; set; }
 
 
