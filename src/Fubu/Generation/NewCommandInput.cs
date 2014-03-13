@@ -81,10 +81,10 @@ namespace Fubu.Generation
         [FlagAlias("no-tests", 'n')]
         public bool NoTestsFlag { get; set; }
 
-        [Description("Visual Studio version.  'VS2012' is the default. Options are 'VS2010', 'VS2012', or 'VS2013'")]
+        [Description("Visual Studio version. 'VS2012' is the default. Options are 'VS2010', 'VS2012', or 'VS2013'")]
         public string VersionFlag { get; set; }
 
-        [Description("Specify the .Net version 'v4.0' or 'v4.5'")]
+        [Description("Specify the .Net version. 'v4.0' is the default. Options are 'v4.0' or 'v4.5'")]
         [FlagAlias("dot-net")]
         public string DotNetFlag { get; set; }
 
